@@ -7,6 +7,9 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+class thread{
+
+}
 class shapes_area{
     shapes_area(){
         JFrame calciframe=new JFrame("AREA OF SHAPES");
@@ -767,19 +770,19 @@ class exception {
     }
 }
 class jobexec{
-	 void job(){
-		Font font = new Font("Arial",Font.PLAIN,16);
-		JTextArea j = new JTextArea();
-		j.setBounds(230,50,500,300);
-		j.setEditable(false);
-		j.setAutoscrolls(true);
-		j.setFont(font);
-		
-		JFrame win = new JFrame("Job Application");
-		win.setSize(800,400);
-		win.setLayout(null);
-		win.setVisible(true);
-		JLabel l1=new JLabel("Name:");
+    void job(){
+        Font font = new Font("Arial",Font.PLAIN,16);
+        JTextArea j = new JTextArea();
+        j.setBounds(230,50,500,300);
+        j.setEditable(false);
+        j.setAutoscrolls(true);
+        j.setFont(font);
+
+        JFrame win = new JFrame("Job Application");
+        win.setSize(800,400);
+        win.setLayout(null);
+        win.setVisible(true);
+        JLabel l1=new JLabel("Name:");
         l1.setBounds(100,100,150,50);
         win.add(l1);
         JLabel l2=new JLabel("Job Role");
@@ -810,90 +813,96 @@ class jobexec{
             }
         });
         b1.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		win.setSize(1500,400);
-        		JTextArea r1= new  JTextArea("\tApplication ");
-        		r1.setBounds(900,100,200,200);
-        		int a=18;
-        		int b= 40;
-        		double Age= Double.parseDouble(t3.getText());
-        		if(Age<a)
-        		{   r1.append("\n\t\nToo Early To Apply");
-        			r1.append("\n\t\nNAME:"+t1.getText());
-        			r1.append("\n\t\nJob Role:"+t2.getText());
-        			r1.append("\n\t\nAge:"+t3.getText());
-        			
-        		}
-        		else if(Age>b)
-        		{    r1.append("\n\t\nToo Late To Apply");
-        		
-        			r1.append("\n\t\nNAME:"+t1.getText());
-        			r1.append("\n\t\nJob Role:"+t2.getText());
-        			r1.append("\n\t\nAge:"+t3.getText());
-        		}	
-        		else 
-        			{   r1.append("\n\t\nCongratulation for the Job");
-            			r1.append("\n\t\nNAME:"+t1.getText());
-            			r1.append("\n\t\nJob Role:"+t2.getText());
-            			r1.append("\n\t\nAge:"+t3.getText());
-            	    }
-        		win.revalidate();
-        		win.repaint();
-        		win.add(r1);
-        		
-        		
-        	}
-        	
+            public void actionPerformed(ActionEvent e) {
+                win.setSize(1500,400);
+                JTextArea r1= new  JTextArea("\t\t***Application*** ");
+                r1.setBounds(900,100,400,300);
+                int a=18;
+                int b= 40;
+                double Age= Double.parseDouble(t3.getText());
+                if(Age<a)
+                {
+                    r1.append("\n\t\n\tSorry it's too Early To Apply!!!!");
+                    r1.append("\n\t\n\tNAME:"+t1.getText());
+                    r1.append("\n\t\n\tJob Role:"+t2.getText());
+                    r1.append("\n\t\n\tAge:"+t3.getText());
+
+                }
+                else if(Age>b)
+                {
+                    r1.append("\n\t\n\tSorry it's too Late To Apply!!!!!");
+                    r1.append("\n\t\n\tNAME:"+t1.getText());
+                    r1.append("\n\t\n\tJob Role:"+t2.getText());
+                    r1.append("\n\t\n\tAge:"+t3.getText());
+                }
+                else
+                {r1.append("\n\t\n\tCongratulations you are eligible  for the Job!!!");
+                    r1.append("\n\t\n\tNAME:"+t1.getText());
+                    r1.append("\n\t\n\tJob Role:"+t2.getText());
+                    r1.append("\n\t\n\tAge:"+t3.getText());
+                }
+                win.revalidate();
+                win.repaint();
+                win.add(r1);
+
+
+            }
+
         });
-		
-	}
+
+    }
 }
 
- 
+
 
 @SuppressWarnings("serial")
 class MMT1 extends JFrame implements MouseListener {
-	JLabel lb1;
-	@SuppressWarnings("unused")
-	 MMT1(){
-     new JFrame();
-     this.setSize(400,400);
-     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-     this.setLayout(null);
-   lb1=new JLabel("Hello SJEC");
-     lb1.setBounds(150,150,250,25);
-     this.add(lb1);
-     this.addMouseListener(this);
-     this.setVisible(true);
-	}
-     
-	
-	public void mouseClicked(MouseEvent e) {
-		lb1.setText("Mouse Clicked at X="+e.getX()+" Y="+e.getY());
-	}
-		
-	
-	
-	public void mousePressed(MouseEvent e) {
-		
-		lb1.setText("Mouse Pressed at X="+e.getX()+" Y="+e.getY());
-	}
-	
-	public void mouseReleased(MouseEvent e) {
-		lb1.setText("Mouse Released at X="+e.getX()+" Y="+e.getY());
-		
-	}
-	
-	public void mouseEntered(MouseEvent e) {
-		lb1.setText("Mouse Entered at X="+e.getX()+" Y="+e.getY());
-		
-	}
-	
-	public void mouseExited(MouseEvent e) {
-		
-		lb1.setText("Mouse Exited at X="+e.getX()+" Y="+e.getY());
-	}
-     
+    JLabel lb1;
+    @SuppressWarnings("unused")
+    MMT1(){
+        new JFrame();
+        this.setTitle("MOUSE ACTION LISTENER");
+        this.setBounds(700,300,400,400);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(null);
+        lb1=new JLabel("MOVE CURSOR IN THE FRAME TO INITIATE MOUSE OPERATIONS");
+        lb1.setBounds(150,150,400,25);
+        this.add(lb1);
+        this.addMouseListener(this);
+        this.setVisible(true);
+        JButton butty=new JButton("Exit");
+        butty.setBounds(200,200,100,20);
+        butty.addActionListener(e->this.dispose());
+        this.add(butty);
+    }
+
+
+    public void mouseClicked(MouseEvent e) {
+        lb1.setText("Mouse Clicked at X="+e.getX()+" Y="+e.getY());
+    }
+
+
+
+    public void mousePressed(MouseEvent e) {
+
+        lb1.setText("Mouse Pressed at X="+e.getX()+" Y="+e.getY());
+    }
+
+    public void mouseReleased(MouseEvent e) {
+        lb1.setText("Mouse Released at X="+e.getX()+" Y="+e.getY());
+
+    }
+
+    public void mouseEntered(MouseEvent e) {
+        lb1.setText("Mouse Entered at X="+e.getX()+" Y="+e.getY());
+
+    }
+
+    public void mouseExited(MouseEvent e) {
+
+        lb1.setText("Mouse Exited at X="+e.getX()+" Y="+e.getY());
+    }
+
 
 }
 public class Main {
@@ -986,15 +995,15 @@ public class Main {
         Job.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              jobexec  j=new jobexec();
-              j.job();
+                jobexec  j=new jobexec();
+                j.job();
             }
         });
         mmt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              MMT1 program = new MMT1();
-              
+                MMT1 program = new MMT1();
+
             }
         });
         f.setLayout(null);
