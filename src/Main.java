@@ -762,7 +762,136 @@ class exception {
         window.setVisible(true);
     }
 }
+class jobexec{
+	 void job(){
+		Font font = new Font("Arial",Font.PLAIN,16);
+		JTextArea j = new JTextArea();
+		j.setBounds(230,50,500,300);
+		j.setEditable(false);
+		j.setAutoscrolls(true);
+		j.setFont(font);
+		
+		JFrame win = new JFrame("Job Application");
+		win.setSize(800,400);
+		win.setLayout(null);
+		win.setVisible(true);
+		JLabel l1=new JLabel("Name:");
+        l1.setBounds(100,100,150,50);
+        win.add(l1);
+        JLabel l2=new JLabel("Job Role");
+        l2.setBounds(100,150,150,50);
+        win.add(l2);
+        JLabel l3=new JLabel("Age");
+        l3.setBounds(100,200,150,50);
+        win.add(l3);
+        JTextField t1=new JTextField();
+        t1.setBounds(250,115,100,20);
+        win.add(t1);
+        JTextField t2=new JTextField();
+        t2.setBounds(250,165,100,20);
+        win.add(t2);
+        JTextField t3=new JTextField();
+        t3.setBounds(250,215,100,20);
+        win.add(t3);
+        JButton b1=new JButton("Apply");
+        JButton b2=new JButton("Exit");
+        b1.setBounds(100,250,110,20);
+        b2.setBounds(220,250,110,20);
+        win.add(b1);
+        win.add(b2);
+        b2.addActionListener(new ActionListener() {
 
+            public void actionPerformed(ActionEvent e) {
+                win.dispose();
+            }
+        });
+        b1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		win.setSize(1500,400);
+        		JTextArea r1= new  JTextArea("\tApplication ");
+        		r1.setBounds(900,100,200,200);
+        		int a=18;
+        		int b= 40;
+        		double Age= Double.parseDouble(t3.getText());
+        		if(Age<a)
+        		{   r1.append("\n\t\nToo Early To Apply");
+        			r1.append("\n\t\nNAME:"+t1.getText());
+        			r1.append("\n\t\nJob Role:"+t2.getText());
+        			r1.append("\n\t\nAge:"+t3.getText());
+        			
+        		}
+        		else if(Age>b)
+        		{    r1.append("\n\t\nToo Late To Apply");
+        		
+        			r1.append("\n\t\nNAME:"+t1.getText());
+        			r1.append("\n\t\nJob Role:"+t2.getText());
+        			r1.append("\n\t\nAge:"+t3.getText());
+        		}	
+        		else 
+        			{   r1.append("\n\t\nCongratulation for the Job");
+            			r1.append("\n\t\nNAME:"+t1.getText());
+            			r1.append("\n\t\nJob Role:"+t2.getText());
+            			r1.append("\n\t\nAge:"+t3.getText());
+            	    }
+        		win.revalidate();
+        		win.repaint();
+        		win.add(r1);
+        		
+        		
+        	}
+        	
+        });
+		
+	}
+}
+
+ 
+
+@SuppressWarnings("serial")
+abstract class MMT1 extends JFrame implements MouseListener {
+	JLabel lb1;
+	@SuppressWarnings("unused")
+	 MMT1(){
+     new JFrame();
+     this.setSize(400,400);
+     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+     this.setLayout(null);
+   lb1=new JLabel("Hello SJEC");
+     lb1.setBounds(150,150,250,25);
+     this.add(lb1);
+     this.addMouseListener(this);
+     this.setVisible(true);
+	}
+     
+	
+	public void mouseClicked(MouseEvent e) {
+		lb1.setText("Mouse Clicked at X="+e.getX()+" Y="+e.getY());
+	}
+		
+	
+	
+	public void mousePressed(MouseEvent e) {
+		
+		lb1.setText("Mouse Pressed at X="+e.getX()+" Y="+e.getY());
+	}
+	
+	public void mouseReleased(MouseEvent e) {
+		lb1.setText("Mouse Released at X="+e.getX()+" Y="+e.getY());
+		
+	}
+	
+	public void mouseEntered(MouseEvent e) {
+		lb1.setText("Mouse Entered at X="+e.getX()+" Y="+e.getY());
+		
+	}
+	
+	public void mouseExited(MouseEvent e) {
+		
+		lb1.setText("Mouse Exited at X="+e.getX()+" Y="+e.getY());
+	}
+     
+
+}
 public class Main {
     public static void main(String[] args) {
         JFrame f=new JFrame(" OPEN ENDED");
@@ -781,6 +910,8 @@ public class Main {
         JMenuItem elect=new JMenuItem("Electricity Bill");
         JMenuItem excep = new JMenuItem("Exception Handling");
         JMenuItem shap_area = new JMenuItem("Area of Shapes");
+        JMenuItem Job=new JMenuItem("Job Exception");
+        JMenuItem mmt=new JMenuItem("Mouse Listener");
         JMenuItem Bi_hex=new JMenuItem("Binary to decimal");
         JMenuItem calci=new JMenuItem("Calculator");
         JMenuItem exit_item=new JMenuItem("Exit options");
@@ -789,6 +920,8 @@ public class Main {
         lab.add(elect);
         lab.add(excep);
         lab.add(shap_area);
+        lab.add(Job);
+        lab.add(mmt);
 
         assignment.add(Bi_hex);
         assignment.add(calci);
@@ -844,6 +977,20 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 shapes_area sa=new shapes_area();
+            }
+        });
+        Job.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              jobexec  j=new jobexec();
+              j.job();
+            }
+        });
+        mmt.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              new MMT();
+              
             }
         });
         f.setLayout(null);
