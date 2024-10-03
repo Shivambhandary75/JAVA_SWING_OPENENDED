@@ -1,4 +1,8 @@
+package project.src;
+
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -848,7 +852,7 @@ class jobexec{
  
 
 @SuppressWarnings("serial")
-abstract class MMT1 extends JFrame implements MouseListener {
+class MMT1 extends JFrame implements MouseListener {
 	JLabel lb1;
 	@SuppressWarnings("unused")
 	 MMT1(){
@@ -989,7 +993,7 @@ public class Main {
         mmt.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              new MMT();
+              MMT1 program = new MMT1();
               
             }
         });
