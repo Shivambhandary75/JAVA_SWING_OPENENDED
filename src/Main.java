@@ -942,17 +942,19 @@ class Odd extends Thread{
 
 class thrd extends Thread{
     boolean is_running = false;
-    JTextArea display;
+    JFrame window = new JFrame("Threading");
+    JTextArea display = new JTextArea();
+
     thrd(){
 
         //Inititalize variables
-        JFrame window = new JFrame("Threading");
+
         window.setSize(450, 500);
 
         Font font = new Font("Arial", Font.PLAIN, 16);
         Font font1 = new Font("Arial", Font.PLAIN, 24);
 
-        display = new JTextArea();
+
         display.setBounds(30, 70, 365, 310);
         display.setEditable(false);
         display.setFont(font);
@@ -975,8 +977,7 @@ class thrd extends Thread{
                 {
                     is_running = true;
                     start.setText("Stop");
-                    thrd t = new thrd();
-                    t.start();
+                    start();
                 }
                 else{
                     is_running = false;
