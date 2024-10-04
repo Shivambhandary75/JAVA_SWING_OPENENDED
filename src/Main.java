@@ -977,6 +977,7 @@ class Odd extends Thread{
 
 class thrd extends Thread{
     boolean is_running = false;
+    boolean new_thread = true;
     JFrame window = new JFrame("Threading");
     JTextArea display = new JTextArea();
 
@@ -1012,7 +1013,10 @@ class thrd extends Thread{
                 {
                     is_running = true;
                     start.setText("Stop");
-                    start();
+                    if(new_thread) {
+                        start();
+                        new_thread = false;
+                    }
                 }
                 else{
                     is_running = false;
@@ -1042,27 +1046,40 @@ class thrd extends Thread{
     public void run(){
         int number, count = 0;
         Random rand = new Random();
-        while (is_running){
-            if(count > 3) {
-                display.setText("");
-                count = 0;
+        while (true){
+            if(is_running) {
+                if (count > 3) {
+                    display.setText("");
+                    count = 0;
+                }
+                number = rand.nextInt(10);
+                display.append("\n  The number is " + number);
+                count++;
+
+                if (number % 2 == 0) {
+                    Even t = new Even(number, display);
+                    t.start();
+                } else {
+                    Odd t = new Odd(number, display);
+                    t.start();
+                }
+
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
-            number = rand.nextInt(10);
-            display.append("\n  The number is " + number);
-            count++;
-
-            if(number%2 == 0) {
-                Even t = new Even(number, display);
-                t.start();
-            }
-            else {
-                Odd t = new Odd(number, display);
-                t.start();
-            }
-
-
-
+            else
             try {
+                display.setText("\n Program Terminated");
+                Thread.sleep(1000);
+                display.append(".");
+                Thread.sleep(1000);
+                display.append(".");
+                Thread.sleep(1000);
+                display.append(".");
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
