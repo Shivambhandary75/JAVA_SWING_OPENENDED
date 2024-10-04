@@ -136,70 +136,93 @@ class shapes_area{
     }
 }
 
+//Employee Pay Slip
 class emp_rep{
     void emprep(){
+        //Create Window
         JFrame empframe=new JFrame("EMPLOYEE SALARY");
         empframe.setSize(800, 700);
-        empframe.setLayout(null);
-        empframe.setVisible(true);
+
+        //Create Window Elements
         JLabel l1=new JLabel("Employee name");
         l1.setBounds(100,100,150,50);
         empframe.add(l1);
+
         JLabel l2=new JLabel("Employee ID");
         l2.setBounds(100,150,150,50);
         empframe.add(l2);
+
         JLabel l3=new JLabel("Employee mail id");
         l3.setBounds(100,200,150,50);
         empframe.add(l3);
+
         JLabel l4=new JLabel("Employee mobile no.");
         l4.setBounds(100,250,150,50);
         empframe.add(l4);
+
         JLabel l5=new JLabel("Employee address");
         l5.setBounds(100,300,150,50);
         empframe.add(l5);
+
         JLabel l6=new JLabel("Employee type");
         l6.setBounds(100,350,150,50);
         empframe.add(l6);
+
         JTextField t1=new JTextField();
         t1.setBounds(250,115,100,20);
         empframe.add(t1);
+
         JTextField t2=new JTextField();
         t2.setBounds(250,165,100,20);
         empframe.add(t2);
+
         JTextField t3=new JTextField();
         t3.setBounds(250,215,100,20);
         empframe.add(t3);
+
         JTextField t4=new JTextField();
         t4.setBounds(250,265,100,20);
         empframe.add(t4);
+
         JTextField t5=new JTextField();
         t5.setBounds(250,315,100,20);
         empframe.add(t5);
+
         JRadioButton r1=new JRadioButton("Professor");
         r1.setBounds(220,365,100,20);
+
         JRadioButton r2=new JRadioButton("Assistant Professor");
         JRadioButton r3=new JRadioButton("Associate Professor");
         r2.setBounds(360,365,200,20);
         r3.setBounds(560,365,200,20);
+
         JLabel l7=new JLabel("Basic Pay");
         l7.setBounds(100,395,150,50);
         empframe.add(l7);
+
         JTextField t6=new JTextField();
         t6.setBounds(250,405,100,20);
         empframe.add(t6);
+
         JButton b1=new JButton("Compute");
         JButton b2=new JButton("Exit");
         b1.setBounds(170,500,100,20);
         b2.setBounds(350,500,100,20);
+
         ButtonGroup bg=new ButtonGroup();
+
         empframe.add(r2);
         empframe.add(r3);
         empframe.add(b1);
         empframe.add(b2);
+
         bg.add(r1);
         bg.add(r2);
         bg.add(r3);
+
         empframe.add(r1);
+
+        //Handle Events
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -264,56 +287,75 @@ class emp_rep{
                 empframe.add(rep);
             }
         });
+
+        empframe.setLayout(null);
+        empframe.setVisible(true);
     }
 }
 class elec_bill {
     void electra() {
+
         JFrame elecframe=new JFrame("ELECTRICITY BILL");
         elecframe.setSize(600, 600);
+
         elecframe.setLayout(null);
         elecframe.setVisible(true);
+
         JLabel l1=new JLabel("Consumer Name");
         l1.setBounds(100,100,150,50);
         elecframe.add(l1);
+
         JLabel l2=new JLabel("Consumer ID");
         l2.setBounds(100,150,150,50);
         elecframe.add(l2);
+
         JLabel l3=new JLabel("Previous month reading");
         l3.setBounds(100,200,150,50);
         elecframe.add(l3);
+
         JLabel l4=new JLabel("Current month reading");
         l4.setBounds(100,250,150,50);
         elecframe.add(l4);
+
         JLabel l5=new JLabel("Type of bill");
         l5.setBounds(100,300,150,50);
         elecframe.add(l5);
+
         JTextField t1=new JTextField();
         t1.setBounds(250,115,100,20);
         elecframe.add(t1);
+
         JTextField t2=new JTextField();
         t2.setBounds(250,165,100,20);
         elecframe.add(t2);
+
         JTextField t3=new JTextField();
         t3.setBounds(250,215,100,20);
         elecframe.add(t3);
+
         JTextField t4=new JTextField();
         t4.setBounds(250,265,100,20);
         elecframe.add(t4);
+
         JRadioButton r1=new JRadioButton("Domestic");
         JRadioButton r2=new JRadioButton("Commercial");
         r1.setBounds(250,310,100,20);
         r2.setBounds(350,310,100,20);
         elecframe.add(r1);
         elecframe.add(r2);
+
         ButtonGroup bg=new ButtonGroup();
         bg.add(r1);
         bg.add(r2);
+
         JButton b1=new JButton("Compute bill");
         JButton b2=new JButton("Exit");
         b1.setBounds(100,360,110,20);
         b2.setBounds(220,360,110,20);
         elecframe.add(b1);
         elecframe.add(b2);
+
+        //Handle Events
         b2.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -374,6 +416,7 @@ class calculator{
         window.setSize(450, 500);
 
         Font font = new Font("Arial", Font.PLAIN, 16);
+        Font font1 = new Font("Arial",Font.PLAIN,16);
 
         JTextField display = new JTextField();
         display.setBounds(30, 70, 345, 50);
@@ -388,11 +431,16 @@ class calculator{
 
         //Initialize variables
         add = new JButton("+");
+        add.setFont(font1);
         sub = new JButton("-");
+        sub.setFont(font1);
         mul = new JButton("×");
+        mul.setFont(font1);
         div = new JButton("÷");
+        div.setFont(font1);
         clear = new JButton("C");
         equals = new JButton("=");
+        equals.setFont(font1);
         exit = new JButton("Exit");
 
         num0 = new JButton("0");
@@ -639,24 +687,31 @@ class binary {
 
         JFrame bihexframe=new JFrame("BINARY<=>DECIMAL");
         bihexframe.setSize(500, 400);
+
         JLabel l1=new JLabel("BINARY");
         l1.setBounds(100,100,150,50);
         bihexframe.add(l1);
+
         JLabel l2=new JLabel("DECIMAL");
         l2.setBounds(100,150,150,50);
         bihexframe.add(l2);
+
         JTextField t1=new JTextField();
         t1.setBounds(250,115,100,20);
         bihexframe.add(t1);
+
         JTextField t2=new JTextField();
         t2.setBounds(250,165,100,20);
         bihexframe.add(t2);
+
         JButton b1=new JButton("Calculate");
         JButton b2=new JButton("Exit");
         b1.setBounds(100,200,100,20);
         b2.setBounds(220,200,100,20);
         bihexframe.add(b1);
         bihexframe.add(b2);
+
+        //Handle Events
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -718,6 +773,7 @@ class binary {
             public void actionPerformed(ActionEvent e) {
                 bihexframe.dispose();}
         });
+
         bihexframe.setLayout(null);
         bihexframe.setVisible(true);
 
@@ -726,6 +782,7 @@ class binary {
 
 class exception {
     exception() {
+
         Font font = new Font("Arial", Font.PLAIN, 16);
         JTextArea arey = new JTextArea();
         arey.setBounds(230, 50, 500, 300);
@@ -759,6 +816,7 @@ class exception {
         window.add(exit);
 
 
+        //Handle Events
         procA.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -815,32 +873,42 @@ class jobexec{
 
         JFrame win = new JFrame("Job Application");
         win.setSize(800,400);
+
         win.setLayout(null);
         win.setVisible(true);
+
         JLabel l1=new JLabel("Name:");
         l1.setBounds(100,100,150,50);
         win.add(l1);
+
         JLabel l2=new JLabel("Job Role");
         l2.setBounds(100,150,150,50);
         win.add(l2);
+
         JLabel l3=new JLabel("Age");
         l3.setBounds(100,200,150,50);
         win.add(l3);
+
         JTextField t1=new JTextField();
         t1.setBounds(250,115,100,20);
         win.add(t1);
+
         JTextField t2=new JTextField();
         t2.setBounds(250,165,100,20);
         win.add(t2);
+
         JTextField t3=new JTextField();
         t3.setBounds(250,215,100,20);
         win.add(t3);
+
         JButton b1=new JButton("Apply");
         JButton b2=new JButton("Exit");
         b1.setBounds(100,250,110,20);
         b2.setBounds(220,250,110,20);
         win.add(b1);
         win.add(b2);
+
+        //Handle Events
         b2.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -1074,13 +1142,13 @@ class thrd extends Thread{
             else
             try {
                 display.setText("\n Program Terminated");
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 display.append(".");
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 display.append(".");
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 display.append(".");
-                Thread.sleep(1000);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -1091,12 +1159,14 @@ class thrd extends Thread{
 
 public class Main {
     public static void main(String[] args) {
+
         JFrame f=new JFrame(" OPEN ENDED");
         f.setBounds(200,200,400,400);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         JMenuBar bar=new JMenuBar();
-        JMenu  lab=new JMenu("Lab Program");
-        JMenu   assignment =new JMenu("Assignment Program");
+        JMenu lab=new JMenu("Lab Program");
+        JMenu assignment =new JMenu("Assignment Program");
         JMenu exit=new JMenu("Exit");
 
         bar.add(lab);
