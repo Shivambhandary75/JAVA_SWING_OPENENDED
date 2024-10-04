@@ -7,78 +7,112 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-class thread{
 
-}
+//Shape Area
 class shapes_area{
+    //Constructor
     shapes_area(){
+
+        //Create Window
         JFrame calciframe=new JFrame("AREA OF SHAPES");
         calciframe.setSize(1000,400);
+
+        //Create Window Elements
         JLabel rect = new JLabel("RECTANGLE:");
         rect.setBounds(70, 100, 100, 50);
-        calciframe.add(rect);
+
         JLabel rl = new JLabel("LENGTH:");
         rl.setBounds(80, 130, 100, 50);
-        calciframe.add(rl);
+
         JTextField rtl = new JTextField();
         rtl.setBounds(170, 145, 100, 20);
-        calciframe.add(rtl);
+
         JLabel rtb = new JLabel("BREADTH:");
         rtb.setBounds(320, 130, 100, 50);
-        calciframe.add(rtb);
+
         JTextField rb = new JTextField();
         rb.setBounds(450, 145, 100, 20);
-        calciframe.add(rb);
+
         JLabel area1 = new JLabel("AREA:");
         area1.setBounds(650, 130, 100, 50);
-        calciframe.add(area1);
+
         JTextField res1 = new JTextField();
         res1.setBounds(700, 145, 100, 20);
-        calciframe.add(res1);
+
         JLabel tri=new JLabel("TRIANGLE:");
         tri.setBounds(70, 170, 100, 50);
-        calciframe.add(tri);
+
         JLabel th=new JLabel("HEIGHT:");
         th.setBounds(80, 195, 100, 50);
-        calciframe.add(th);
+
         JTextField tht=new JTextField();
         tht.setBounds(170, 215, 100, 20);
-        calciframe.add(tht);
+
         JLabel tb=new JLabel("BASE:");
         tb.setBounds(320, 215, 100, 20);
-        calciframe.add(tb);
+
         JTextField b=new JTextField();
         b.setBounds(450, 215, 100, 20);
-        calciframe.add(b);
+
         JLabel area2 = new JLabel("AREA:");
         area2.setBounds(650, 200, 100, 50);
-        calciframe.add(area2);
+
         JTextField res2= new JTextField();
         res2.setBounds(700, 215, 100, 20);
-        calciframe.add(res2);
+
         JLabel circ=new JLabel("CIRCLE:");
         circ.setBounds(70, 235, 100, 50);
-        calciframe.add(circ);
+
         JLabel c=new JLabel("RADIUS:");
         c.setBounds(80, 255, 100, 50);
-        calciframe.add(c);
+
         JTextField cr=new JTextField();
         cr.setBounds(170, 270, 100, 20);
-        calciframe.add(cr);
+
         JLabel area3= new JLabel("AREA:");
         area3.setBounds(650, 255, 100, 50);
-        calciframe.add(area3);
+
         JTextField res3 = new JTextField();
         res3.setBounds(700, 270, 100, 20);
-        calciframe.add(res3);
+
         JButton calc =new JButton("CALCULATE");
         calc.setBounds(70, 320, 120, 20);
-        calciframe.add(calc);
+
         JButton calc2 =new JButton("EXIT");
         calc2.setBounds(210, 320, 120, 20);
+
+
+        //Add Elements to Window
+
+        calciframe.add(rect);
+        calciframe.add(rl);
+        calciframe.add(rtl);
+        calciframe.add(rtb);
+        calciframe.add(rb);
+        calciframe.add(area1);
+        calciframe.add(res1);
+        calciframe.add(tri);
+        calciframe.add(th);
+        calciframe.add(tht);
+        calciframe.add(tb);
+        calciframe.add(b);
+        calciframe.add(area2);
+        calciframe.add(res2);
+        calciframe.add(circ);
+        calciframe.add(c);
+        calciframe.add(cr);
+        calciframe.add(area3);
+        calciframe.add(res3);
+        calciframe.add(calc);
         calciframe.add(calc2);
+
+
+        //Window Properties
         calciframe.setLayout(null);
         calciframe.setVisible(true);
+
+
+        //Handle Events
         calc2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,6 +135,7 @@ class shapes_area{
 
     }
 }
+
 class emp_rep{
     void emprep(){
         JFrame empframe=new JFrame("EMPLOYEE SALARY");
