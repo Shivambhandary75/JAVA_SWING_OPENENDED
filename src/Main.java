@@ -905,11 +905,142 @@ class MMT1 extends JFrame implements MouseListener {
 
 
 }
+
+//Threading
+class Even extends Thread{
+    int number;
+    JTextArea display;
+
+    Even(int number, JTextArea display)
+    {
+        this.number = number;
+        this.display = display;
+    }
+
+    public void run()
+    {
+        display.append("\n  " + number + " is even");
+        display.append("\n  Its square is " + (number*number) + "\n");
+    }
+}
+
+class Odd extends Thread{
+    int number;
+    JTextArea display;
+    Odd(int number, JTextArea display)
+    {
+        this.number = number;
+        this.display = display;
+    }
+
+    public void run()
+    {
+        display.append("\n  " + number + " is odd");
+        display.append("\n  Its cube is " + (number*number*number) + "\n");
+    }
+}
+
+class thrd extends Thread{
+    boolean is_running = false;
+    JTextArea display;
+    thrd(){
+
+        //Inititalize variables
+        JFrame window = new JFrame("Threading");
+        window.setSize(450, 500);
+
+        Font font = new Font("Arial", Font.PLAIN, 16);
+        Font font1 = new Font("Arial", Font.PLAIN, 24);
+
+        display = new JTextArea();
+        display.setBounds(30, 70, 365, 310);
+        display.setEditable(false);
+        display.setFont(font);
+
+        JLabel output = new JLabel("Output");
+        output.setBounds((window.getSize().width/2)-50, 30, 100, 25);
+        output.setFont(font1);
+
+        JButton start, exit;
+        start = new JButton("Start");
+        start.setBounds(50, 400, 100, 35);
+
+        exit = new JButton("Exit");
+        exit.setBounds(270, 400, 100, 35);
+
+        //Handle Events
+        start.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(Objects.equals(start.getText(), "Start"))
+                {
+                    is_running = true;
+                    start.setText("Stop");
+                    thrd t = new thrd();
+                    t.start();
+                }
+                else{
+                    is_running = false;
+                    start.setText("Start");
+                }
+
+            }
+        });
+
+        exit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                window.dispose();
+            }
+        });
+
+        //Draw elements
+        window.add(display);
+        window.add(start);
+        window.add(exit);
+        window.add(output);
+
+        window.setLayout(null);
+        window.setVisible(true);
+
+    }
+
+    public void run(){
+        int number, count = 0;
+        Random rand = new Random();
+        while (is_running){
+            if(count > 3) {
+                display.setText("");
+                count = 0;
+            }
+            number = rand.nextInt(10);
+            display.append("\n  The number is " + number);
+            count++;
+
+            if(number%2 == 0) {
+                Even t = new Even(number, display);
+                t.start();
+            }
+            else {
+                Odd t = new Odd(number, display);
+                t.start();
+            }
+
+
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+}
+
+
 public class Main {
     public static void main(String[] args) {
         JFrame f=new JFrame(" OPEN ENDED");
         f.setBounds(200,200,400,400);
-        f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JMenuBar bar=new JMenuBar();
         JMenu  lab=new JMenu("Lab Program");
         JMenu   assignment =new JMenu("Assignment Program");
@@ -925,6 +1056,7 @@ public class Main {
         JMenuItem shap_area = new JMenuItem("Area of Shapes");
         JMenuItem Job=new JMenuItem("Job Exception");
         JMenuItem mmt=new JMenuItem("Mouse Listener");
+        JMenuItem Thrd = new JMenuItem("Threading");
         JMenuItem Bi_hex=new JMenuItem("Binary to decimal");
         JMenuItem calci=new JMenuItem("Calculator");
         JMenuItem exit_item=new JMenuItem("Exit options");
@@ -935,6 +1067,7 @@ public class Main {
         lab.add(shap_area);
         lab.add(Job);
         lab.add(mmt);
+        lab.add(Thrd);
 
         assignment.add(Bi_hex);
         assignment.add(calci);
@@ -1006,6 +1139,13 @@ public class Main {
 
             }
         });
+        Thrd.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                thrd program = new thrd();
+            }
+        });
+
+
         f.setLayout(null);
         f.setVisible(true);
     }
