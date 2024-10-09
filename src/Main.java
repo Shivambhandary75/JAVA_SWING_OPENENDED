@@ -414,33 +414,33 @@ class calculator{
     void calci() {
         JFrame window = new JFrame("Calculator");
         window.setSize(450, 500);
+        window.setLayout(null);
+        window.getContentPane().setBackground(Color.BLACK); // Set the background of the window to black
 
         Font font = new Font("Arial", Font.PLAIN, 16);
-        Font font1 = new Font("Arial",Font.PLAIN,16);
+        Font font1 = new Font("Arial", Font.PLAIN, 16);
 
         JTextField display = new JTextField();
         display.setBounds(30, 70, 345, 50);
         display.setEditable(false);
         display.setFont(font);
+        display.setBackground(Color.BLACK); // Set display background to black
+        display.setForeground(Color.WHITE); // Set display text to white
 
         JLabel label = new JLabel("");
         label.setBounds(320, 40, 100, 25);
+        label.setForeground(Color.WHITE); // Set label text color to white
 
+        // Initialize variables
         JButton add, sub, mul, div, clear, equals, exit;
         JButton num1, num2, num3, num4, num5, num6, num7, num8, num9, num0;
 
-        //Initialize variables
         add = new JButton("+");
-        add.setFont(font1);
         sub = new JButton("-");
-        sub.setFont(font1);
         mul = new JButton("×");
-        mul.setFont(font1);
-        div = new JButton("÷");
-        div.setFont(font1);
+        div = new JButton("/");
         clear = new JButton("C");
         equals = new JButton("=");
-        equals.setFont(font1);
         exit = new JButton("Exit");
 
         num0 = new JButton("0");
@@ -454,8 +454,30 @@ class calculator{
         num8 = new JButton("8");
         num9 = new JButton("9");
 
-        //Set content position
-        //Numbers
+        // Set button colors
+        JButton[] buttons = {   add, sub, mul, div, clear, equals, exit,
+                num0, num1, num2, num3, num4, num5, num6, num7, num8, num9
+        };
+
+        for (JButton button : buttons) {
+            button.setFont(font1);
+            button.setBackground(Color.DARK_GRAY);  // Set button background to gray
+            button.setForeground(Color.WHITE); // Set button text color to white
+        }
+
+        add.setBackground(Color.gray);
+        sub.setBackground(Color.gray);
+        mul.setBackground(Color.gray);
+        div.setBackground(Color.gray);
+
+        exit.setBackground(Color.RED);
+        clear.setBackground(Color.ORANGE);
+        clear.setForeground(Color.black);
+        equals.setBackground(Color.GREEN);
+        equals.setForeground(Color.black);
+
+        // Set content position
+        // Numbers
         num7.setBounds(30, 150, 50, 50);
         num8.setBounds(100, 150, 50, 50);
         num9.setBounds(170, 150, 50, 50);
@@ -470,7 +492,7 @@ class calculator{
 
         num0.setBounds(30, 360, 200, 50);
 
-        //Operations
+        // Operations
         add.setBounds(240, 150, 50, 50);
         sub.setBounds(240, 220, 50, 50);
         mul.setBounds(240, 290, 50, 50);
@@ -479,13 +501,17 @@ class calculator{
         clear.setBounds(310, 150, 60, 90);
         exit.setBounds(30, 20, 100, 25);
 
+
         //Handle Events
-        final double[] op1 = new double[1];
-        final int[] op2 = new int[1];
+        final boolean[] setOperator = {false};
+        double op1;
+        double op2;
+        String operator;
 
         num0.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num0.getText());
+                setOperator[0] = true;
             }
         });
 
@@ -493,155 +519,184 @@ class calculator{
         num1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num1.getText());
+                setOperator[0] = true;
             }
         });
 
         num2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num2.getText());
+                setOperator[0] = true;
             }
         });
 
         num3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num3.getText());
+                setOperator[0] = true;
             }
         });
 
         num4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num4.getText());
+                setOperator[0] = true;
             }
         });
 
         num5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num5.getText());
+                setOperator[0] = true;
             }
         });
 
         num6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num6.getText());
+                setOperator[0] = true;
             }
         });
 
         num7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num7.getText());
+                setOperator[0] = true;
             }
         });
 
         num8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num8.getText());
+                setOperator[0] = true;
             }
         });
 
         num9.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText(display.getText() + num9.getText());
+                setOperator[0] = true;
             }
         });
 
         //Operations
-        final String[][] op = {new String[1]};
-        final Boolean[] op_select = {false};
+
 
         add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!op_select[0] && !display.getText().isEmpty()) {
-                    op1[0] = Integer.parseInt(display.getText());
-                    label.setText(display.getText() + " " + add.getText());
-                    op[0][0] = add.getText();
-
-                    display.setText("");
-                    op_select[0] = true;
+                if(setOperator[0])
+                {
+                    display.setText(display.getText() + add.getText());
+                    setOperator[0] = false;
                 }
+
             }
         });
 
 
         sub.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!op_select[0] && !display.getText().isEmpty()) {
-                    op1[0] = Integer.parseInt(display.getText());
-                    label.setText(display.getText() + " " + sub.getText());
-                    op[0][0] = sub.getText();
-
-                    display.setText("");
-                    op_select[0] = true;
+                if(setOperator[0])
+                {
+                    display.setText(display.getText() + sub.getText());
+                    setOperator[0] = false;
                 }
             }
         });
 
         mul.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!op_select[0] && !display.getText().isEmpty()) {
-                    op1[0] = Integer.parseInt(display.getText());
-                    label.setText(display.getText() + " " + mul.getText());
-                    op[0][0] = mul.getText();
-
-                    display.setText("");
-                    op_select[0] = true;
+                if(setOperator[0])
+                {
+                    display.setText(display.getText() + "*");
+                    setOperator[0] = false;
                 }
             }
         });
 
         div.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(!op_select[0] && !display.getText().isEmpty()) {
-                    op1[0] = Integer.parseInt(display.getText());
-                    label.setText(display.getText() + " " + div.getText());
-                    op[0][0] = "/";
-
-                    display.setText("");
-                    op_select[0] = true;
+                if(setOperator[0])
+                {
+                    display.setText(display.getText() + div.getText());
+                    setOperator[0] = false;
                 }
             }
         });
 
         clear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                op1[0] = 0;
-                op[0][0] = "";
-                op2[0] = 0;
                 display.setText("");
                 label.setText("");
-                op_select[0] = false;
+                setOperator[0] = false;
             }
         });
 
         equals.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(op_select[0] && !display.getText().isEmpty())
+
+                int count = 0;
+                int output = 0;
+                String value1 = "";
+                int length = display.getText().length();
+
+                if(!display.getText().isEmpty() && setOperator[0])
                 {
-                    op2[0] = Integer.parseInt(display.getText());
+                    while (true) {
 
-                    switch (op[0][0])
-                    {
-                        case "+":
-                            label.setText(label.getText() + " " + display.getText());
-                            display.setText(String.valueOf((op1[0] + op2[0])));
-                            break;
-                        case "-":
-                            label.setText(label.getText() + " " + display.getText());
-                            display.setText(String.valueOf((op1[0] - op2[0])));
-                            break;
-                        case "×":
-                            label.setText(label.getText() + " " + display.getText());
-                            display.setText(String.valueOf((op1[0] * op2[0])));
-                            break;
-                        case "/":
-                            label.setText(label.getText() + " " + display.getText());
-                            if(op2[0] != 0)
-                                display.setText(String.valueOf((op1[0] / op2[0])));
+                        String value2 = "", operator;
+
+                        if (value1.isEmpty())
+                            while (count != length) {
+                                if (Character.isDigit(display.getText().charAt(count)))
+                                    value1 = value1 + display.getText().charAt(count++);
+                                else
+                                    break;
+                            }
+                        operator = String.valueOf(display.getText().charAt(count++));
+                        while (count != length) {
+                            if (Character.isDigit(display.getText().charAt(count)))
+                                value2 = value2 + display.getText().charAt(count++);
                             else
-                                display.setText("Error");
-                            break;
-                    }
+                                break;
+                        }
+                        if (!value1.isEmpty() && !value2.isEmpty()) {
+                            switch (operator) {
+                                case "+":
+                                    output = (Integer.parseInt(value1) + Integer.parseInt(value2));
+                                    break;
+                                case "-":
+                                    output = (Integer.parseInt(value1) - Integer.parseInt(value2));
+                                    break;
+                                case "*":
+                                    output = (Integer.parseInt(value1) * Integer.parseInt(value2));
+                                    break;
+                                case "/":
+                                    if(Integer.parseInt(value2) != 0)
+                                    {
+                                        output = (Integer.parseInt(value1) / Integer.parseInt(value2));
+                                        break;
+                                    }
+                                default:
+                                    display.setText("MATH ERROR");
+                                    return;
+                            }
 
+                            if (count != length)
+                            {
+                                value1 = String.valueOf(output);
+                            }
+                            else
+                            {
+                                label.setText(display.getText());
+                                display.setText(String.valueOf(output));
+                                return;
+                            }
+
+                        }
+                    }
                 }
+                display.setText("ERROR");
             }
         });
 
