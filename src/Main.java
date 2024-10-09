@@ -14,125 +14,121 @@ class shapes_area{
     shapes_area(){
 
         //Create Window
-        JFrame calciframe=new JFrame("AREA OF SHAPES");
-        calciframe.setSize(1000,400);
-
-        //Create Window Elements
-        JLabel rect = new JLabel("RECTANGLE:");
-        rect.setBounds(70, 100, 100, 50);
-
-        JLabel rl = new JLabel("LENGTH:");
-        rl.setBounds(80, 130, 100, 50);
-
-        JTextField rtl = new JTextField();
-        rtl.setBounds(170, 145, 100, 20);
-
-        JLabel rtb = new JLabel("BREADTH:");
-        rtb.setBounds(320, 130, 100, 50);
-
-        JTextField rb = new JTextField();
-        rb.setBounds(450, 145, 100, 20);
-
-        JLabel area1 = new JLabel("AREA:");
-        area1.setBounds(650, 130, 100, 50);
-
-        JTextField res1 = new JTextField();
-        res1.setBounds(700, 145, 100, 20);
-
-        JLabel tri=new JLabel("TRIANGLE:");
-        tri.setBounds(70, 170, 100, 50);
-
-        JLabel th=new JLabel("HEIGHT:");
-        th.setBounds(80, 195, 100, 50);
-
-        JTextField tht=new JTextField();
-        tht.setBounds(170, 215, 100, 20);
-
-        JLabel tb=new JLabel("BASE:");
-        tb.setBounds(320, 215, 100, 20);
-
-        JTextField b=new JTextField();
-        b.setBounds(450, 215, 100, 20);
-
-        JLabel area2 = new JLabel("AREA:");
-        area2.setBounds(650, 200, 100, 50);
-
-        JTextField res2= new JTextField();
-        res2.setBounds(700, 215, 100, 20);
-
-        JLabel circ=new JLabel("CIRCLE:");
-        circ.setBounds(70, 235, 100, 50);
-
-        JLabel c=new JLabel("RADIUS:");
-        c.setBounds(80, 255, 100, 50);
-
-        JTextField cr=new JTextField();
-        cr.setBounds(170, 270, 100, 20);
-
-        JLabel area3= new JLabel("AREA:");
-        area3.setBounds(650, 255, 100, 50);
-
-        JTextField res3 = new JTextField();
-        res3.setBounds(700, 270, 100, 20);
-
-        JButton calc =new JButton("CALCULATE");
-        calc.setBounds(70, 320, 120, 20);
-
-        JButton calc2 =new JButton("EXIT");
-        calc2.setBounds(210, 320, 120, 20);
-
-
-        //Add Elements to Window
-
-        calciframe.add(rect);
-        calciframe.add(rl);
-        calciframe.add(rtl);
-        calciframe.add(rtb);
-        calciframe.add(rb);
-        calciframe.add(area1);
-        calciframe.add(res1);
-        calciframe.add(tri);
-        calciframe.add(th);
-        calciframe.add(tht);
-        calciframe.add(tb);
-        calciframe.add(b);
-        calciframe.add(area2);
-        calciframe.add(res2);
-        calciframe.add(circ);
-        calciframe.add(c);
-        calciframe.add(cr);
-        calciframe.add(area3);
-        calciframe.add(res3);
-        calciframe.add(calc);
-        calciframe.add(calc2);
-
-
-        //Window Properties
-        calciframe.setLayout(null);
-        calciframe.setVisible(true);
-
-
-        //Handle Events
-        calc2.addActionListener(new ActionListener() {
+        JFrame frame = new JFrame("AREA OF SHAPES");
+        frame.setBounds(200, 200, 500, 400);
+        JLabel select_shape = new JLabel("Select a Shape:");
+        select_shape.setBounds(50, 50, 150, 22);
+        frame.add(select_shape);
+        String[] shapes = { "No shape selected", "Rectangle", "Triangle", "Circle" };
+        JComboBox<String> shape_list = new JComboBox<>(shapes);
+        shape_list.setBounds(200, 50, 170, 25);
+        frame.add(shape_list);
+        JButton calculate=new JButton("Calculate");
+        JButton  exit=new JButton("Exit");
+        shape_list.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                calciframe.dispose();
+                for (int i = frame.getContentPane().getComponentCount() - 1; i >= 0; i--) {
+                    if (!(frame.getContentPane().getComponent(i) instanceof JButton)) {
+                        frame.getContentPane().remove(i);
+                    }
+                }
+                frame.add(select_shape);
+                frame.add(shape_list);
+                if (shape_list.getSelectedItem().equals("Rectangle")) {
+                    JLabel length = new JLabel("Length:");
+                    length.setBounds(50, 100, 100, 30);
+                    frame.add(length);
+                    JLabel breadth = new JLabel("Breadth:");
+                    breadth.setBounds(50, 140, 100, 30);
+                    frame.add(breadth);
+                    JLabel area = new JLabel("Area:");
+                    area.setBounds(50, 180, 100, 30);
+                    frame.add(area);
+                    JTextField length_field=new JTextField();
+                    length_field.setBounds(200, 100, 150, 30);
+                    frame.add(length_field);
+                    JTextField breadth_field=new JTextField();
+                    breadth_field.setBounds(200, 140, 150, 30);
+                    frame.add(breadth_field);
+                    JTextField area_field=new JTextField();
+                    area_field.setBounds(200, 180, 150, 30);
+                    frame.add(area_field);
+                    calculate.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            double length=Double.parseDouble(length_field.getText());
+                            double breadth=Double.parseDouble(breadth_field.getText());
+                            area_field.setText(String.valueOf(length*breadth));
+                        }
+                    });
+                } else if (shape_list.getSelectedItem().equals("Triangle")) {
+                    JLabel base = new JLabel("Base:");
+                    base.setBounds(50, 100, 100, 30);
+                    frame.add(base);
+                    JLabel height = new JLabel("Height:");
+                    height.setBounds(50, 140, 100, 30);
+                    frame.add(height);
+                    JLabel area = new JLabel("Area:");
+                    area.setBounds(50, 180, 100, 30);
+                    frame.add(area);
+                    JTextField base_field=new JTextField();
+                    base_field.setBounds(200, 100, 150, 30);
+                    frame.add(base_field);
+                    JTextField height_field=new JTextField();
+                    height_field.setBounds(200, 140, 150, 30);
+                    frame.add(height_field);
+                    JTextField area_field=new JTextField();
+                    area_field.setBounds(200, 180, 150, 30);
+                    frame.add(area_field);
+                    calculate.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            double base=Double.parseDouble(base_field.getText());
+                            double height=Double.parseDouble(height_field.getText());
+                            area_field.setText(String.valueOf(0.5*base*height));
+                        }
+                    });
+                } else if (shape_list.getSelectedItem().equals("Circle")) {
+                    JLabel base = new JLabel("Radius:");
+                    base.setBounds(50, 100, 100, 30);
+                    frame.add(base);
+                    JLabel area = new JLabel("Area:");
+                    area.setBounds(50, 180, 100, 30);
+                    frame.add(area);
+                    JTextField radius_field=new JTextField();
+                    radius_field.setBounds(200, 100, 150, 30);
+                    frame.add(radius_field);
+                    JTextField area_field=new JTextField();
+                    area_field.setBounds(200, 180, 150, 30);
+                    frame.add(area_field);
+                    calculate.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            double radius=Double.parseDouble(radius_field.getText());
+                            area_field.setText(String.valueOf(3.14*radius*radius));
+                        }
+                    });
+                }
+                frame.revalidate();
+                frame.repaint();
             }
-        });
-        calc.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                double rect_len=Double.parseDouble(rtl.getText());
-                double rect_bred=Double.parseDouble(rb.getText());
-                res1.setText(String.valueOf(rect_len*rect_bred));
-                double tri_hi=Double.parseDouble(tht.getText());
-                double tri_base=Double.parseDouble(b.getText());
-                res2.setText(String.valueOf(tri_hi*tri_base*0.5));
-                double circ_rad=Double.parseDouble(cr.getText());
-                res3.setText(String.valueOf(3.14*circ_rad*circ_rad));
-            }
+
         });
 
+        calculate.setBounds(50, 250, 100, 25);
+        frame.add(calculate);
+
+        exit.setBounds(160, 250, 100, 25);
+        frame.add(exit);
+        exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+        });
+        frame.setLayout(null);
+        frame.setVisible(true);
     }
 }
 
