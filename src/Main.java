@@ -1036,15 +1036,16 @@ class MMT1 extends JFrame implements MouseListener {
     MMT1(){
         new JFrame();
         this.setTitle("MOUSE ACTION LISTENER");
-        this.setBounds(700,300,400,400);
+        this.setBounds(300,200,1150,500);
         this.setLayout(null);
         lb1=new JLabel("MOVE CURSOR IN THE FRAME TO INITIATE MOUSE OPERATIONS");
-        lb1.setBounds(150,150,400,25);
+        lb1.setFont(new Font("Arial",Font.PLAIN,15));
+        lb1.setBounds(630,270,550,25);
         this.add(lb1);
         this.addMouseListener(this);
         this.setVisible(true);
         JButton butone=new JButton("Exit");
-        butone.setBounds(200,200,100,20);
+        butone.setBounds(700,300,100,20);
         butone.addActionListener(e->this.dispose());
         this.add(butone);
     }
