@@ -298,45 +298,45 @@ class elec_bill {
         elecframe.setVisible(true);
 
         JLabel l1=new JLabel("Consumer Name");
-        l1.setBounds(100,100,150,50);
+        l1.setBounds(100,20,150,50);
         elecframe.add(l1);
 
         JLabel l2=new JLabel("Consumer ID");
-        l2.setBounds(100,150,150,50);
+        l2.setBounds(100,70,150,50);
         elecframe.add(l2);
 
         JLabel l3=new JLabel("Previous month reading");
-        l3.setBounds(100,200,150,50);
+        l3.setBounds(100,120,150,50);
         elecframe.add(l3);
 
         JLabel l4=new JLabel("Current month reading");
-        l4.setBounds(100,250,150,50);
+        l4.setBounds(100,170,150,50);
         elecframe.add(l4);
 
         JLabel l5=new JLabel("Type of bill");
-        l5.setBounds(100,300,150,50);
+        l5.setBounds(100,220,150,50);
         elecframe.add(l5);
 
         JTextField t1=new JTextField();
-        t1.setBounds(250,115,100,20);
+        t1.setBounds(250,35,100,20);
         elecframe.add(t1);
 
         JTextField t2=new JTextField();
-        t2.setBounds(250,165,100,20);
+        t2.setBounds(250,85,100,20);
         elecframe.add(t2);
 
         JTextField t3=new JTextField();
-        t3.setBounds(250,215,100,20);
+        t3.setBounds(250,135,100,20);
         elecframe.add(t3);
 
         JTextField t4=new JTextField();
-        t4.setBounds(250,265,100,20);
+        t4.setBounds(250,185,100,20);
         elecframe.add(t4);
 
         JRadioButton r1=new JRadioButton("Domestic");
         JRadioButton r2=new JRadioButton("Commercial");
-        r1.setBounds(250,310,100,20);
-        r2.setBounds(350,310,100,20);
+        r1.setBounds(250,230,100,20);
+        r2.setBounds(350,230,100,20);
         elecframe.add(r1);
         elecframe.add(r2);
 
@@ -346,12 +346,12 @@ class elec_bill {
 
         JButton b1=new JButton("Compute bill");
         JButton b2=new JButton("Exit");
-        b1.setBounds(100,360,110,20);
-        b2.setBounds(220,360,110,20);
+        b1.setBounds(100,280,110,20);
+        b2.setBounds(220,280,110,20);
         elecframe.add(b1);
         elecframe.add(b2);
         JTextArea bill=new JTextArea();
-        bill.setBounds(600,100,350,500);
+        bill.setBounds(600,20,350,500);
         bill.setEditable(false);
         //Handle Events
         b2.addActionListener(new ActionListener() {
@@ -760,25 +760,25 @@ class binary {
         bihexframe.setSize(500, 400);
 
         JLabel l1=new JLabel("BINARY");
-        l1.setBounds(100,100,150,50);
+        l1.setBounds(100,35,150,50);
         bihexframe.add(l1);
 
         JLabel l2=new JLabel("DECIMAL");
-        l2.setBounds(100,150,150,50);
+        l2.setBounds(100,150-65,150,50);
         bihexframe.add(l2);
 
         JTextField t1=new JTextField();
-        t1.setBounds(250,115,100,20);
+        t1.setBounds(250,115-65,100,20);
         bihexframe.add(t1);
 
         JTextField t2=new JTextField();
-        t2.setBounds(250,165,100,20);
+        t2.setBounds(250,165-65,100,20);
         bihexframe.add(t2);
 
         JButton b1=new JButton("Calculate");
         JButton b2=new JButton("Exit");
-        b1.setBounds(100,200,100,20);
-        b2.setBounds(220,200,100,20);
+        b1.setBounds(100,200-65,100,20);
+        b2.setBounds(220,200-65,100,20);
         bihexframe.add(b1);
         bihexframe.add(b2);
 
@@ -947,37 +947,37 @@ class jobexec{
         win.setVisible(true);
 
         JLabel l1=new JLabel("Name:");
-        l1.setBounds(100,100,150,50);
+        l1.setBounds(100,35,150,50);
         win.add(l1);
 
         JLabel l2=new JLabel("Job Role");
-        l2.setBounds(100,150,150,50);
+        l2.setBounds(100,85,150,50);
         win.add(l2);
 
         JLabel l3=new JLabel("Age");
-        l3.setBounds(100,200,150,50);
+        l3.setBounds(100,135,150,50);
         win.add(l3);
 
         JTextField t1=new JTextField();
-        t1.setBounds(250,115,100,20);
+        t1.setBounds(250,50,100,20);
         win.add(t1);
 
         JTextField t2=new JTextField();
-        t2.setBounds(250,165,100,20);
+        t2.setBounds(250,100,100,20);
         win.add(t2);
 
         JTextField t3=new JTextField();
-        t3.setBounds(250,215,100,20);
+        t3.setBounds(250,150,100,20);
         win.add(t3);
 
         JButton b1=new JButton("Apply");
         JButton b2=new JButton("Exit");
-        b1.setBounds(100,250,110,20);
-        b2.setBounds(220,250,110,20);
+        b1.setBounds(100,185,110,20);
+        b2.setBounds(220,185,110,20);
         win.add(b1);
         win.add(b2);
         JTextArea r1= new  JTextArea();
-        r1.setBounds(900,100,400,300);
+        r1.setBounds(900,85,400,300);
         r1.setEditable(false);
         //Handle Events
         b2.addActionListener(new ActionListener() {
@@ -1233,15 +1233,36 @@ public class Main {
         JFrame f=new JFrame(" OPEN ENDED");
         f.setBounds(200,200,400,400);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        JLabel name=new JLabel("JAVA OPEN ENDED  ASSIGNMENT");
+        JLabel point1=new JLabel("->  Click on the Lab Programs option to look into the Lab programs list");
+        JLabel point2=new JLabel("-> Click on the Assignment Programs option  to look into the Assignments programs list");
+        JLabel point3=new JLabel("->  Click on the Exit option to Quit the Application");
+        JLabel point4=new JLabel("->  Click on the Developers option to look into the Team members-list");
+        name.setBounds(475,80,700,500);
+        point1.setBounds(420,145,1500,500);
+        point2.setBounds(420,185,1500,500);
+        point3.setBounds(420,225,1500,500);
+        point4.setBounds(420,265,1500,500);
+        name.setFont(new Font("Arial",Font.PLAIN,30));
+        point1.setFont(new Font("Arial",Font.PLAIN,25));
+        point2.setFont(new Font("Arial",Font.PLAIN,25));
+        point3.setFont(new Font("Arial",Font.PLAIN,25));
+        point4.setFont(new Font("Arial",Font.PLAIN,25));
+        f.add(name);
+        f.add(point1);
+        f.add(point2);
+        f.add(point3);
+        f.add(point4);
         JMenuBar bar=new JMenuBar();
-        JMenu lab=new JMenu("Lab Program");
-        JMenu assignment =new JMenu("Assignment Program");
+        JMenu lab=new JMenu("Lab Programs");
+        JMenu assignment =new JMenu("Assignment Programs");
         JMenu exit=new JMenu("Exit");
+        JMenu devs=new JMenu("Developers");
 
         bar.add(lab);
         bar.add(assignment);
         bar.add(exit);
+        bar.add(devs);
 
         JMenuItem emp=new JMenuItem("Employee Salary");
         JMenuItem elect=new JMenuItem("Electricity Bill");
@@ -1253,6 +1274,12 @@ public class Main {
         JMenuItem Bi_hex=new JMenuItem("Binary to decimal");
         JMenuItem calci=new JMenuItem("Calculator");
         JMenuItem exit_item=new JMenuItem("Exit options");
+        JMenuItem reon=new JMenuItem("Reon Dsouza -> 4SO23CS184");
+        JMenuItem ruben=new JMenuItem("Ruben Saldanha -> 4SO23CS191");
+        JMenuItem samuel=new JMenuItem("Samuel Pinto -> 4SO23CS195");
+        JMenuItem shivam=new JMenuItem("Shivam S -> 4SO23CS214");
+
+
 
         lab.add(emp);
         lab.add(elect);
@@ -1264,6 +1291,12 @@ public class Main {
 
         assignment.add(Bi_hex);
         assignment.add(calci);
+
+        devs.add(reon);
+        devs.add(ruben);
+        devs.add(samuel);
+        devs.add(shivam);
+
 
         exit.add(exit_item);
 
