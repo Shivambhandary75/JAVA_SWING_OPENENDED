@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -428,13 +429,14 @@ class calculator{
         label.setForeground(Color.WHITE); // Set label text color to white
 
         // Initialize variables
-        JButton add, sub, mul, div, clear, equals, exit;
+        JButton add, sub, mul, div, clear, equals, exit, delete;
         JButton num1, num2, num3, num4, num5, num6, num7, num8, num9, num0;
 
         add = new JButton("+");
         sub = new JButton("-");
         mul = new JButton("×");
         div = new JButton("/");
+        delete = new JButton("<");
         clear = new JButton("C");
         equals = new JButton("=");
         exit = new JButton("Exit");
@@ -451,7 +453,7 @@ class calculator{
         num9 = new JButton("9");
 
         // Set button colors
-        JButton[] buttons = {   add, sub, mul, div, clear, equals, exit,
+        JButton[] buttons = {   add, sub, mul, div, clear, equals, exit, delete,
                 num0, num1, num2, num3, num4, num5, num6, num7, num8, num9
         };
 
@@ -493,8 +495,9 @@ class calculator{
         sub.setBounds(240, 220, 50, 50);
         mul.setBounds(240, 290, 50, 50);
         div.setBounds(240, 360, 50, 50);
-        equals.setBounds(310, 250, 60, 160);
-        clear.setBounds(310, 150, 60, 90);
+        equals.setBounds(310, 280, 60, 130);
+        clear.setBounds(310, 200, 60, 70);
+        delete.setBounds(310, 150, 58, 40);
         exit.setBounds(30, 20, 100, 25);
 
 
@@ -696,6 +699,22 @@ class calculator{
             }
         });
 
+        delete.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (!display.getText().isEmpty())
+                    try {
+                        if(!Character.isDigit(display.getText().charAt(display.getText().length()-1)))
+                            setOperator[0] = true;
+                        display.setText(display.getText(0, display.getText().length() - 1));
+                        if(display.getText().isEmpty())
+                            setOperator[0] = false;
+                    } catch (BadLocationException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+            }
+        });
+
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 window.dispose();
@@ -725,6 +744,7 @@ class calculator{
         window.add(div);
         window.add(equals);
         window.add(clear);
+        window.add(delete);
         window.add(exit);
 
         window.setLayout(null);
