@@ -140,69 +140,69 @@ class emp_rep{
 
         //Create Window Elements
         JLabel l1=new JLabel("Employee name");
-        l1.setBounds(100,100,150,50);
+        l1.setBounds(100,15,150,50);
         empframe.add(l1);
 
         JLabel l2=new JLabel("Employee ID");
-        l2.setBounds(100,150,150,50);
+        l2.setBounds(100,65,150,50);
         empframe.add(l2);
 
         JLabel l3=new JLabel("Employee mail id");
-        l3.setBounds(100,200,150,50);
+        l3.setBounds(100,115,150,50);
         empframe.add(l3);
 
         JLabel l4=new JLabel("Employee mobile no.");
-        l4.setBounds(100,250,150,50);
+        l4.setBounds(100,165,150,50);
         empframe.add(l4);
 
         JLabel l5=new JLabel("Employee address");
-        l5.setBounds(100,300,150,50);
+        l5.setBounds(100,215,150,50);
         empframe.add(l5);
 
         JLabel l6=new JLabel("Employee type");
-        l6.setBounds(100,350,150,50);
+        l6.setBounds(100,265,150,50);
         empframe.add(l6);
 
         JTextField t1=new JTextField();
-        t1.setBounds(250,115,100,20);
+        t1.setBounds(250,30,100,20);
         empframe.add(t1);
 
         JTextField t2=new JTextField();
-        t2.setBounds(250,165,100,20);
+        t2.setBounds(250,80,100,20);
         empframe.add(t2);
 
         JTextField t3=new JTextField();
-        t3.setBounds(250,215,100,20);
+        t3.setBounds(250,130,100,20);
         empframe.add(t3);
 
         JTextField t4=new JTextField();
-        t4.setBounds(250,265,100,20);
+        t4.setBounds(250,180,100,20);
         empframe.add(t4);
 
         JTextField t5=new JTextField();
-        t5.setBounds(250,315,100,20);
+        t5.setBounds(250,230,100,20);
         empframe.add(t5);
 
         JRadioButton r1=new JRadioButton("Professor");
-        r1.setBounds(220,365,100,20);
+        r1.setBounds(220,280,100,20);
 
         JRadioButton r2=new JRadioButton("Assistant Professor");
         JRadioButton r3=new JRadioButton("Associate Professor");
-        r2.setBounds(360,365,200,20);
-        r3.setBounds(560,365,200,20);
+        r2.setBounds(360,280,200,20);
+        r3.setBounds(560,280,200,20);
 
         JLabel l7=new JLabel("Basic Pay");
-        l7.setBounds(100,395,150,50);
+        l7.setBounds(100,310,150,50);
         empframe.add(l7);
 
         JTextField t6=new JTextField();
-        t6.setBounds(250,405,100,20);
+        t6.setBounds(250,320,100,20);
         empframe.add(t6);
 
         JButton b1=new JButton("Compute");
         JButton b2=new JButton("Exit");
-        b1.setBounds(170,500,100,20);
-        b2.setBounds(350,500,100,20);
+        b1.setBounds(170,375,100,20);
+        b2.setBounds(350,375,100,20);
 
         ButtonGroup bg=new ButtonGroup();
 
