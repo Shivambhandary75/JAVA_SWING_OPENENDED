@@ -54,6 +54,7 @@ class shapes_area{
                     frame.add(breadth_field);
                     JTextField area_field=new JTextField();
                     area_field.setBounds(200, 180, 150, 30);
+                    area_field.setEditable(false);
                     frame.add(area_field);
                     calculate.addActionListener(new ActionListener() {
                         @Override
@@ -81,6 +82,7 @@ class shapes_area{
                     frame.add(height_field);
                     JTextField area_field=new JTextField();
                     area_field.setBounds(200, 180, 150, 30);
+                    area_field.setEditable(false);
                     frame.add(area_field);
                     calculate.addActionListener(new ActionListener() {
                         @Override
@@ -102,6 +104,7 @@ class shapes_area{
                     frame.add(radius_field);
                     JTextField area_field=new JTextField();
                     area_field.setBounds(200, 180, 150, 30);
+                    area_field.setEditable(false);
                     frame.add(area_field);
                     calculate.addActionListener(new ActionListener() {
                         @Override
