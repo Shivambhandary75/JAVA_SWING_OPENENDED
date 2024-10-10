@@ -27,7 +27,6 @@ class shapes_area{
         JButton calculate=new JButton("Calculate");
         JButton  exit=new JButton("Exit");
         shape_list.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 for (int i = frame.getContentPane().getComponentCount() - 1; i >= 0; i--) {
                     if (!(frame.getContentPane().getComponent(i) instanceof JButton)) {
@@ -56,7 +55,6 @@ class shapes_area{
                     area_field.setBounds(200, 180, 150, 30);
                     frame.add(area_field);
                     calculate.addActionListener(new ActionListener() {
-                        @Override
                         public void actionPerformed(ActionEvent e) {
                             double length=Double.parseDouble(length_field.getText());
                             double breadth=Double.parseDouble(breadth_field.getText());
@@ -83,7 +81,6 @@ class shapes_area{
                     area_field.setBounds(200, 180, 150, 30);
                     frame.add(area_field);
                     calculate.addActionListener(new ActionListener() {
-                        @Override
                         public void actionPerformed(ActionEvent e) {
                             double base=Double.parseDouble(base_field.getText());
                             double height=Double.parseDouble(height_field.getText());
@@ -104,7 +101,6 @@ class shapes_area{
                     area_field.setBounds(200, 180, 150, 30);
                     frame.add(area_field);
                     calculate.addActionListener(new ActionListener() {
-                        @Override
                         public void actionPerformed(ActionEvent e) {
                             double radius=Double.parseDouble(radius_field.getText());
                             area_field.setText(String.valueOf(3.14*radius*radius));
@@ -123,7 +119,6 @@ class shapes_area{
         exit.setBounds(160, 250, 100, 25);
         frame.add(exit);
         exit.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
             }
@@ -221,13 +216,11 @@ class emp_rep{
 
         //Handle Events
         b2.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 empframe.dispose();
             }
         });
         b1.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 empframe.setSize(1500, 700);
                 JTextArea rep=new JTextArea("\t\t*RECEIPT BILL*");
@@ -784,7 +777,6 @@ class binary {
 
         //Handle Events
         b1.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 //dec to bin
                 if(t1.getText().length() == 0)
@@ -840,7 +832,6 @@ class binary {
                 }
             }});
         b2.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 bihexframe.dispose();}
         });
@@ -1037,17 +1028,16 @@ class MMT1 extends JFrame implements MouseListener {
         new JFrame();
         this.setTitle("MOUSE ACTION LISTENER");
         this.setBounds(700,300,400,400);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         lb1=new JLabel("MOVE CURSOR IN THE FRAME TO INITIATE MOUSE OPERATIONS");
         lb1.setBounds(150,150,400,25);
         this.add(lb1);
         this.addMouseListener(this);
         this.setVisible(true);
-        JButton butty=new JButton("Exit");
-        butty.setBounds(200,200,100,20);
-        butty.addActionListener(e->this.dispose());
-        this.add(butty);
+        JButton butone=new JButton("Exit");
+        butone.setBounds(200,200,100,20);
+        butone.addActionListener(e->this.dispose());
+        this.add(butone);
     }
 
 
@@ -1271,7 +1261,6 @@ public class Main {
         f.setJMenuBar(bar);
 
         exit_item.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 int choice= JOptionPane.showConfirmDialog(f,"Thank you,would you like to exit?","EXIT",JOptionPane.YES_NO_OPTION);
                 if(choice==JOptionPane.YES_OPTION){
@@ -1314,20 +1303,17 @@ public class Main {
             }
         });
         shap_area.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 shapes_area sa=new shapes_area();
             }
         });
         Job.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 jobexec  j=new jobexec();
                 j.job();
             }
         });
         mmt.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 MMT1 program = new MMT1();
 
