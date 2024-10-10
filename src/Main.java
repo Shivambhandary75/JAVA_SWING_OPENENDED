@@ -216,6 +216,9 @@ class emp_rep{
         bg.add(r3);
 
         empframe.add(r1);
+        JTextArea rep=new JTextArea();
+        rep.setBounds(900,100,500,500);
+        rep.setEditable(false);
 
         //Handle Events
         b2.addActionListener(new ActionListener() {
@@ -226,8 +229,8 @@ class emp_rep{
         b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 empframe.setSize(1500, 700);
-                JTextArea rep=new JTextArea("\t\t*RECEIPT BILL*");
-                rep.setBounds(900,100,500,500);
+                rep.setText("");
+                rep.append("\t\t*RECEIPT BILL*");
                 rep.append("\n\t\nEMPLOYEE NAME:"+t1.getText());
                 rep.append("\n\t\nEMPLOYEE ID:"+t2.getText());
                 rep.append("\n\t\nEMPLOYEE MAIL ID:"+t3.getText());
@@ -347,7 +350,9 @@ class elec_bill {
         b2.setBounds(220,360,110,20);
         elecframe.add(b1);
         elecframe.add(b2);
-
+        JTextArea bill=new JTextArea();
+        bill.setBounds(600,100,350,500);
+        bill.setEditable(false);
         //Handle Events
         b2.addActionListener(new ActionListener() {
 
@@ -359,9 +364,8 @@ class elec_bill {
 
             public void actionPerformed(ActionEvent e) {
                 elecframe.setSize(1200, 600);
-                JTextArea bill=new JTextArea("\t*ELECTRICITY BILL");
-                bill.setBounds(600,100,350,500);
-                bill.setEditable(false);
+                bill.setText("");
+                bill.append("\t*ELECTRICITY BILL");
                 bill.append("\n\nCONSUMER NAME:"+t1.getText());
                 bill.append("\n\nCONSUMER ID:"+t2.getText());
                 bill.append("\n\nPREVIOUS MONTH READING:"+t3.getText());
@@ -972,7 +976,9 @@ class jobexec{
         b2.setBounds(220,250,110,20);
         win.add(b1);
         win.add(b2);
-
+        JTextArea r1= new  JTextArea();
+        r1.setBounds(900,100,400,300);
+        r1.setEditable(false);
         //Handle Events
         b2.addActionListener(new ActionListener() {
 
@@ -983,8 +989,8 @@ class jobexec{
         b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 win.setSize(1500,400);
-                JTextArea r1= new  JTextArea("\t\t***Application*** ");
-                r1.setBounds(900,100,400,300);
+                r1.setText("");
+                r1.append("\t\t***Application*** ");
                 int a=18;
                 int b= 40;
                 double Age= Double.parseDouble(t3.getText());
