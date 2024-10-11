@@ -773,11 +773,11 @@ class calculator{
         window.setVisible(true);
     }
 }
-
+// binary to hexadecimal and vice versa class
 class binary {
-
+    //constructor
     binary() {
-
+        //Create window
         JFrame bihexframe=new JFrame("BINARY<=>DECIMAL");
         bihexframe.setSize(500, 400);
 
@@ -805,6 +805,7 @@ class binary {
         bihexframe.add(b2);
 
         //Handle Events
+        //conversion or calculate button
         b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 //dec to bin
@@ -860,6 +861,7 @@ class binary {
                     t1.setText("");
                 }
             }});
+        //exit button
         b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 bihexframe.dispose();}
@@ -870,10 +872,10 @@ class binary {
 
     }
 }
-
+//exception handling class
 class exception {
     exception() {
-
+        //create window
         Font font = new Font("Arial", Font.PLAIN, 16);
         JTextArea arey = new JTextArea();
         arey.setBounds(230, 50, 500, 300);
@@ -907,7 +909,8 @@ class exception {
         window.add(exit);
 
 
-        //Handle Events
+        //Handle Events\
+        //procedure A button i.e the function call
         procA.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -919,7 +922,7 @@ class exception {
 
             }
         });
-
+        //procedure B button i.e the function call
         procB.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -929,7 +932,7 @@ class exception {
 
             }
         });
-
+        //procedure C button i.e the function call
         procC.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -939,7 +942,7 @@ class exception {
 
             }
         });
-
+        //exit button
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -953,8 +956,10 @@ class exception {
         window.setVisible(true);
     }
 }
+//job exception class
 class jobexec{
     void job(){
+        //create window
         Font font = new Font("Arial",Font.PLAIN,16);
         JTextArea j = new JTextArea();
         j.setBounds(230,50,500,300);
@@ -1002,18 +1007,21 @@ class jobexec{
         r1.setBounds(400,50,400,330);
         r1.setEditable(false);
         //Handle Events
+        //exit button
         b2.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 win.dispose();
             }
         });
+        //job eligibility check button
         b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 win.setSize(900,400);
                 r1.setText("");
                 r1.append("\t\t***Application*** ");
                 double Age= Double.parseDouble(t3.getText());
+                //for age of less than 18y/o
                 if(Age<18)
                 {
                     r1.append("\n\t\n\tSorry it's too Early To Apply!!!!");
@@ -1022,6 +1030,7 @@ class jobexec{
                     r1.append("\n\t\n\tAge:"+t3.getText());
 
                 }
+                //for age of above 40y/o
                 else if(Age>40)
                 {
                     r1.append("\n\t\n\tSorry it's too Late To Apply!!!!!");
@@ -1029,6 +1038,7 @@ class jobexec{
                     r1.append("\n\t\n\tJob Role:"+t2.getText());
                     r1.append("\n\t\n\tAge:"+t3.getText());
                 }
+                //for age between 18 and 40
                 else
                 {r1.append("\n\t\n\tCongratulations you are eligible  for the Job!!!");
                     r1.append("\n\t\n\tNAME:"+t1.getText());
@@ -1047,13 +1057,15 @@ class jobexec{
     }
 }
 
-
+//mouse operations class
 
 @SuppressWarnings("serial")
 class MMT1 extends JFrame implements MouseListener {
     JLabel lb1;
     @SuppressWarnings("unused")
+            //constructor
     MMT1(){
+        //create frame
         new JFrame();
         this.setTitle("MOUSE ACTION LISTENER");
         this.setBounds(700, 300,700, 500);
@@ -1070,29 +1082,29 @@ class MMT1 extends JFrame implements MouseListener {
         this.add(butone);
     }
 
-
+    //click action
     public void mouseClicked(MouseEvent e) {
         lb1.setText("Mouse Clicked at X="+e.getX()+" Y="+e.getY());
         lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
     }
 
 
-
+    //pressed action
     public void mousePressed(MouseEvent e) {
         lb1.setText("Mouse Pressed at X="+e.getX()+" Y="+e.getY());
         lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
     }
-
+    //release action
     public void mouseReleased(MouseEvent e) {
         lb1.setText("Mouse Released at X="+e.getX()+" Y="+e.getY());
         lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
     }
-
+    //cursor entry action
     public void mouseEntered(MouseEvent e) {
         lb1.setText("Mouse Entered at X="+e.getX()+" Y="+e.getY());
         lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
     }
-
+     //cursor exit action
     public void mouseExited(MouseEvent e) {
         lb1.setText("Mouse Exited at X="+e.getX()+" Y="+e.getY());
         lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
@@ -1102,6 +1114,7 @@ class MMT1 extends JFrame implements MouseListener {
 }
 
 //Threading
+//even class for thread
 class Even extends Thread{
     int number;
     JTextArea display;
@@ -1118,7 +1131,7 @@ class Even extends Thread{
         display.append("\n  Its square is " + (number*number) + "\n");
     }
 }
-
+//thread class for thread
 class Odd extends Thread{
     int number;
     JTextArea display;
@@ -1134,17 +1147,17 @@ class Odd extends Thread{
         display.append("\n  Its cube is " + (number*number*number) + "\n");
     }
 }
-
+//thread class
 class thrd extends Thread{
     boolean is_running = false;
     boolean new_thread = true;
     JFrame window = new JFrame("Threading");
     JTextArea display = new JTextArea();
-
+     //constructor
     thrd(){
 
         //Inititalize variables
-
+         //create frame
         window.setSize(450, 500);
 
         Font font = new Font("Arial", Font.PLAIN, 16);
@@ -1167,6 +1180,7 @@ class thrd extends Thread{
         exit.setBounds(270, 400, 100, 35);
 
         //Handle Events
+        //start button
         start.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(Objects.equals(start.getText(), "Start"))
@@ -1185,7 +1199,7 @@ class thrd extends Thread{
 
             }
         });
-
+       //exit button
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 window.dispose();
@@ -1247,14 +1261,16 @@ class thrd extends Thread{
         }
     }
 }
-
-
+//the main or home frame
 public class Main {
     public static void main(String[] args) {
-
+        //main window creation
+        //frame name
         JFrame f=new JFrame(" OPEN ENDED");
         f.setBounds(200,200,400,400);
+        f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //intro labels
         JLabel name=new JLabel("JAVA OPEN ENDED  ASSIGNMENT");
         JLabel point1=new JLabel("->  Click on the Lab Programs option to look into the Lab programs list");
         JLabel point2=new JLabel("-> Click on the Assignment Programs option  to look into the Assignments programs list");
@@ -1275,7 +1291,9 @@ public class Main {
         f.add(point2);
         f.add(point3);
         f.add(point4);
+        //menu  bar
         JMenuBar bar=new JMenuBar();
+        //menu bar items
         JMenu lab=new JMenu("Lab Programs");
         JMenu assignment =new JMenu("Assignment Programs");
         JMenu exit=new JMenu("Exit");
@@ -1285,7 +1303,7 @@ public class Main {
         bar.add(assignment);
         bar.add(exit);
         bar.add(devs);
-
+         //menu items under each menu bar item
         JMenuItem emp=new JMenuItem("Employee Salary");
         JMenuItem elect=new JMenuItem("Electricity Bill");
         JMenuItem excep = new JMenuItem("Exception Handling");
@@ -1323,7 +1341,7 @@ public class Main {
         exit.add(exit_item);
 
         f.setJMenuBar(bar);
-
+       //exit option
         exit_item.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int choice= JOptionPane.showConfirmDialog(f,"Thank you,would you like to exit?","EXIT",JOptionPane.YES_NO_OPTION);
@@ -1338,51 +1356,60 @@ public class Main {
                 }
             }
         });
+        //calculator class object creation
         calci.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 calculator calcobj=new calculator();
                 calcobj.calci();
             }
         });
+        //electricity bill class object creation
         elect.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 elec_bill elecb_obj=new elec_bill();
                 elecb_obj.electra();
             }
         });
+        //employee pay slip  class object creation
         emp.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 emp_rep empy=new emp_rep();
                 empy.emprep();
             }
         });
+        //binary to hexadecimal and vice versa calculator class object creation
         Bi_hex.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 binary bye_bye = new binary();
             }
         });
+        //exception handling class object creation
         excep.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 exception excep = new exception();
             }
         });
+        //area of shapes class object creation
         shap_area.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 shapes_area sa=new shapes_area();
             }
         });
+        //job eligibility exception class object creation
         Job.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jobexec  j=new jobexec();
                 j.job();
             }
         });
+        //mouse action operation class object creation
         mmt.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 MMT1 program = new MMT1();
 
             }
         });
+        //thread class object creation
         Thrd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 thrd program = new thrd();
