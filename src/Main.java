@@ -1232,6 +1232,7 @@ public class Main {
 
         JFrame f=new JFrame(" OPEN ENDED");
         f.setBounds(200,200,400,400);
+        f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JLabel name=new JLabel("JAVA OPEN ENDED  ASSIGNMENT");
         JLabel point1=new JLabel("->  Click on the Lab Programs option to look into the Lab programs list");
