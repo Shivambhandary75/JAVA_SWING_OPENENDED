@@ -1077,7 +1077,7 @@ class MMT1 extends JFrame implements MouseListener {
         this.addMouseListener(this);
         this.setVisible(true);
         JButton butone=new JButton("Exit");
-        butone.setBounds(700,300,100,20);
+        butone.setBounds(this.getHeight()/2,300,100,20);
         butone.addActionListener(e->this.dispose());
         this.add(butone);
     }
