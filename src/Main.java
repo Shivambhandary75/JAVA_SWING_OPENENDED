@@ -1,5 +1,6 @@
+//package name
 package project.src;
-
+//imported modules
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -9,11 +10,10 @@ import javax.swing.text.BadLocationException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//Shape Area
+//Shape Area class
 class shapes_area{
     //Constructor
     shapes_area(){
-
         //Create Window
         JFrame frame = new JFrame("AREA OF SHAPES");
         frame.setBounds(200, 200, 500, 400);
@@ -26,6 +26,7 @@ class shapes_area{
         frame.add(shape_list);
         JButton calculate=new JButton("Calculate");
         JButton  exit=new JButton("Exit");
+        //dropdown menu of shape names
         shape_list.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 for (int i = frame.getContentPane().getComponentCount() - 1; i >= 0; i--) {
@@ -35,6 +36,7 @@ class shapes_area{
                 }
                 frame.add(select_shape);
                 frame.add(shape_list);
+                //area of rectangle
                 if (shape_list.getSelectedItem().equals("Rectangle")) {
                     JLabel length = new JLabel("Length:");
                     length.setBounds(50, 100, 100, 30);
@@ -55,6 +57,7 @@ class shapes_area{
                     area_field.setBounds(200, 180, 150, 30);
                     area_field.setEditable(false);
                     frame.add(area_field);
+                    //area calculation button
                     calculate.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             double length=Double.parseDouble(length_field.getText());
@@ -62,7 +65,9 @@ class shapes_area{
                             area_field.setText(String.valueOf(length*breadth));
                         }
                     });
-                } else if (shape_list.getSelectedItem().equals("Triangle")) {
+                }
+                //area of triangle
+                else if (shape_list.getSelectedItem().equals("Triangle")) {
                     JLabel base = new JLabel("Base:");
                     base.setBounds(50, 100, 100, 30);
                     frame.add(base);
@@ -89,7 +94,9 @@ class shapes_area{
                             area_field.setText(String.valueOf(0.5*base*height));
                         }
                     });
-                } else if (shape_list.getSelectedItem().equals("Circle")) {
+                }
+                //area of circle
+                else if (shape_list.getSelectedItem().equals("Circle")) {
                     JLabel base = new JLabel("Radius:");
                     base.setBounds(50, 100, 100, 30);
                     frame.add(base);
@@ -121,6 +128,7 @@ class shapes_area{
 
         exit.setBounds(160, 250, 100, 25);
         frame.add(exit);
+        //exit button
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
@@ -131,8 +139,9 @@ class shapes_area{
     }
 }
 
-//Employee Pay Slip
+//Employee Pay Slip class
 class emp_rep{
+    //pay slip calculation function
     void emprep(){
         //Create Window
         JFrame empframe=new JFrame("EMPLOYEE SALARY");
@@ -221,11 +230,13 @@ class emp_rep{
         rep.setEditable(false);
 
         //Handle Events
+        //exit button
         b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 empframe.dispose();
             }
         });
+        //bill calculate button
         b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 empframe.setSize(1500, 700);
@@ -245,6 +256,7 @@ class emp_rep{
                 else if(r3.isSelected())
                     type="Associate Professor";
                 rep.append("\n\t\nEMPLOYEE TYPE:"+type);
+                //pay slip for professor
                 if(type.equals("Professor")){
                     double DA=0.97*BP,HRA=0.1*BP,PF=0.12*BP,STAFF=0.001*BP,GP,NP;
                     GP=DA+HRA+BP;
@@ -256,6 +268,7 @@ class emp_rep{
                     rep.append("\n\t\nGP:"+GP);
                     rep.append("\n\t\nNP:"+NP);
                 }
+                //pay slip for associate professor
                 else if(type.equals("Associate Professor")){
                     double DA=0.7*BP,HRA=0.1*BP,PF=0.12*BP,STAFF=0.001*BP,GP,NP;
                     GP=DA+HRA+BP;
@@ -267,6 +280,7 @@ class emp_rep{
                     rep.append("\n\t\nGP:"+GP);
                     rep.append("\n\t\nNP:"+NP);
                 }
+                //payslip for assistant professor
                 else if(type.equals("Assistant Professor")){
                     double DA=0.6*BP,HRA=0.1*BP,PF=0.12*BP,STAFF=0.001*BP,GP,NP;
                     GP=DA+HRA+BP;
@@ -288,9 +302,10 @@ class emp_rep{
         empframe.setVisible(true);
     }
 }
+//electricity bill class
 class elec_bill {
     void electra() {
-
+        //Create Window
         JFrame elecframe=new JFrame("ELECTRICITY BILL");
         elecframe.setSize(600, 400);
 
@@ -354,12 +369,14 @@ class elec_bill {
         bill.setBounds(500,20,350,300);
         bill.setEditable(false);
         //Handle Events
+        //exit button
         b2.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 elecframe.dispose();
             }
         });
+        //bill computation button
         b1.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
@@ -379,6 +396,7 @@ class elec_bill {
                 else if(r2.isSelected())
                     type="Commercial";
                 bill.append("\n\nTYPE OF BILL:"+type);
+                //for domestic type of bill
                 if(type.equals("Domestic")){
                     if(units<=100)
                         bill_amt=units*1;
@@ -389,6 +407,7 @@ class elec_bill {
                     else if(units>500)
                         bill_amt=100+100*2.5+300*4+(units-500)*6;
                 }
+                //for commercial type of bill
                 else if(type.equals("Commercial")) {
                     if (units <= 100)
                         bill_amt = units * 2;
@@ -407,8 +426,10 @@ class elec_bill {
         });
     }
 }
+//calculator class
 class calculator{
     void calci() {
+        //Create Window
         JFrame window = new JFrame("Calculator");
         window.setSize(450, 500);
         window.setLayout(null);
@@ -506,6 +527,7 @@ class calculator{
         double op1;
         double op2;
         String operator;
+        //digits from 0 to 9
 
         num0.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -580,7 +602,7 @@ class calculator{
 
         //Operations
 
-
+       //addition
         add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(setOperator[0])
@@ -592,7 +614,7 @@ class calculator{
             }
         });
 
-
+        //subtraction
         sub.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(setOperator[0])
@@ -602,7 +624,7 @@ class calculator{
                 }
             }
         });
-
+        //multiplication
         mul.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(setOperator[0])
@@ -612,7 +634,7 @@ class calculator{
                 }
             }
         });
-
+         //division
         div.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if(setOperator[0])
@@ -622,7 +644,7 @@ class calculator{
                 }
             }
         });
-
+        //all clear button
         clear.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 display.setText("");
@@ -630,7 +652,7 @@ class calculator{
                 setOperator[0] = false;
             }
         });
-
+        //equals button
         equals.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -698,7 +720,7 @@ class calculator{
                 display.setText("ERROR");
             }
         });
-
+        //delete or backspace button
         delete.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!display.getText().isEmpty())
@@ -714,7 +736,7 @@ class calculator{
 
             }
         });
-
+        //exit button
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 window.dispose();
