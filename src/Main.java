@@ -1034,11 +1034,11 @@ class MMT1 extends JFrame implements MouseListener {
     MMT1(){
         new JFrame();
         this.setTitle("MOUSE ACTION LISTENER");
-        this.setBounds(300,200,1150,500);
+        this.setBounds(700, 300,700, 500);
         this.setLayout(null);
         lb1=new JLabel("MOVE CURSOR IN THE FRAME TO INITIATE MOUSE OPERATIONS");
         lb1.setFont(new Font("Arial",Font.PLAIN,15));
-        lb1.setBounds(630,270,550,25);
+        lb1.setBounds((this.getWidth()/2)-200,this.getHeight()/2,550,25);
         this.add(lb1);
         this.addMouseListener(this);
         this.setVisible(true);
@@ -1051,28 +1051,29 @@ class MMT1 extends JFrame implements MouseListener {
 
     public void mouseClicked(MouseEvent e) {
         lb1.setText("Mouse Clicked at X="+e.getX()+" Y="+e.getY());
+        lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
     }
 
 
 
     public void mousePressed(MouseEvent e) {
-
         lb1.setText("Mouse Pressed at X="+e.getX()+" Y="+e.getY());
+        lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
     }
 
     public void mouseReleased(MouseEvent e) {
         lb1.setText("Mouse Released at X="+e.getX()+" Y="+e.getY());
-
+        lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
     }
 
     public void mouseEntered(MouseEvent e) {
         lb1.setText("Mouse Entered at X="+e.getX()+" Y="+e.getY());
-
+        lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
     }
 
     public void mouseExited(MouseEvent e) {
-
         lb1.setText("Mouse Exited at X="+e.getX()+" Y="+e.getY());
+        lb1.setBounds((this.getWidth()/2)-lb1.getText().length(),this.getHeight()/2,550,25);
     }
 
 
