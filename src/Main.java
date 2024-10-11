@@ -292,7 +292,7 @@ class elec_bill {
     void electra() {
 
         JFrame elecframe=new JFrame("ELECTRICITY BILL");
-        elecframe.setSize(600, 600);
+        elecframe.setSize(600, 400);
 
         elecframe.setLayout(null);
         elecframe.setVisible(true);
@@ -351,7 +351,7 @@ class elec_bill {
         elecframe.add(b1);
         elecframe.add(b2);
         JTextArea bill=new JTextArea();
-        bill.setBounds(600,20,350,500);
+        bill.setBounds(500,20,350,300);
         bill.setEditable(false);
         //Handle Events
         b2.addActionListener(new ActionListener() {
@@ -363,7 +363,7 @@ class elec_bill {
         b1.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                elecframe.setSize(1200, 600);
+                elecframe.setSize(1000, 400);
                 bill.setText("");
                 bill.append("\t*ELECTRICITY BILL");
                 bill.append("\n\nCONSUMER NAME:"+t1.getText());
@@ -977,7 +977,7 @@ class jobexec{
         win.add(b1);
         win.add(b2);
         JTextArea r1= new  JTextArea();
-        r1.setBounds(900,85,400,300);
+        r1.setBounds(400,50,400,330);
         r1.setEditable(false);
         //Handle Events
         b2.addActionListener(new ActionListener() {
@@ -988,13 +988,11 @@ class jobexec{
         });
         b1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                win.setSize(1500,400);
+                win.setSize(900,400);
                 r1.setText("");
                 r1.append("\t\t***Application*** ");
-                int a=18;
-                int b= 40;
                 double Age= Double.parseDouble(t3.getText());
-                if(Age<a)
+                if(Age<18)
                 {
                     r1.append("\n\t\n\tSorry it's too Early To Apply!!!!");
                     r1.append("\n\t\n\tNAME:"+t1.getText());
@@ -1002,7 +1000,7 @@ class jobexec{
                     r1.append("\n\t\n\tAge:"+t3.getText());
 
                 }
-                else if(Age>b)
+                else if(Age>40)
                 {
                     r1.append("\n\t\n\tSorry it's too Late To Apply!!!!!");
                     r1.append("\n\t\n\tNAME:"+t1.getText());
